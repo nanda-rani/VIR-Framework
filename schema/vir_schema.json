@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VIR complaint annotation record",
+  "description": "Schema for private authorized data or wholly synthetic test data. Real complaint-level records must not be placed in the public artifact.",
+  "type": "object",
+  "required": [
+    "record_id", "is_synthetic", "split", "narrative", "attack_vector", "attribution",
+    "awareness", "misconception", "emotion_panic", "emotion_anger",
+    "emotion_fear", "emotion_confusion", "emotion_neutral",
+    "assist_fund_recovery", "assist_account_recovery",
+    "assist_content_removal", "assist_legal_action", "assist_investigation",
+    "action_bank", "action_password_reset", "action_police",
+    "action_account_block"
+  ],
+  "properties": {
+    "record_id": {"type": "string", "description": "Use an internal non-identifying ID in an authorized private environment. All public demonstration IDs must match SYN-NNNN."},
+    "is_synthetic": {"type": "integer", "enum": [0, 1], "description": "Public demonstration records use 1; authorized private records use 0."},
+    "split": {"enum": ["train", "validation", "test", "agreement"]},
+    "narrative": {"type": "string", "description": "Invented text in the public artifact; restricted complaint text only in a private authorized environment."},
+    "attack_vector": {"type": "integer", "minimum": 0, "maximum": 5},
+    "attribution": {"type": "integer", "minimum": 0, "maximum": 1},
+    "awareness": {"type": "integer", "minimum": 0, "maximum": 2},
+    "misconception": {"type": "integer", "minimum": 0, "maximum": 1},
+    "emotion_panic": {"type": "integer", "minimum": 0, "maximum": 1},
+    "emotion_anger": {"type": "integer", "minimum": 0, "maximum": 1},
+    "emotion_fear": {"type": "integer", "minimum": 0, "maximum": 1},
+    "emotion_confusion": {"type": "integer", "minimum": 0, "maximum": 1},
+    "emotion_neutral": {"type": "integer", "minimum": 0, "maximum": 1},
+    "assist_fund_recovery": {"type": "integer", "minimum": 0, "maximum": 1},
+    "assist_account_recovery": {"type": "integer", "minimum": 0, "maximum": 1},
+    "assist_content_removal": {"type": "integer", "minimum": 0, "maximum": 1},
+    "assist_legal_action": {"type": "integer", "minimum": 0, "maximum": 1},
+    "assist_investigation": {"type": "integer", "minimum": 0, "maximum": 1},
+    "action_bank": {"type": "integer", "minimum": 0, "maximum": 1},
+    "action_password_reset": {"type": "integer", "minimum": 0, "maximum": 1},
+    "action_police": {"type": "integer", "minimum": 0, "maximum": 1},
+    "action_account_block": {"type": "integer", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": true
+}

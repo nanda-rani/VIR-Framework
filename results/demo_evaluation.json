@@ -1,0 +1,102 @@
+{
+  "records": 60,
+  "attack_vector": {
+    "accuracy": 0.95,
+    "macro_f1": 0.9291013584117033,
+    "confusion_matrix": [
+      [
+        4,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        15,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        14,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        9
+      ]
+    ]
+  },
+  "technical_awareness": {
+    "accuracy": 0.9666666666666667,
+    "within_one_level_accuracy": 1.0,
+    "macro_f1": 0.6539002488369577,
+    "spearman_rho": 0.9791784311840815
+  },
+  "attribution": {
+    "accuracy": 0.9666666666666667,
+    "macro_f1": 0.9573863636363636,
+    "cohen_kappa": 0.9148936170212766
+  },
+  "misconception": {
+    "accuracy": 0.9666666666666667,
+    "f1": 0.0,
+    "cohen_kappa": 0.0
+  },
+  "emotional_expression": {
+    "mean_jaccard": 0.8916666666666667,
+    "per_label_f1": {
+      "emotion_panic": 0.0,
+      "emotion_anger": 0.0,
+      "emotion_fear": 0.8333333333333334,
+      "emotion_confusion": 0.9375,
+      "emotion_neutral": 0.9772727272727273
+    }
+  },
+  "requested_assistance": {
+    "mean_jaccard": 0.9222222222222222,
+    "per_label_f1": {
+      "assist_fund_recovery": 0.9705882352941176,
+      "assist_account_recovery": 0.9615384615384616,
+      "assist_content_removal": 0.8333333333333334,
+      "assist_legal_action": 0.8333333333333334,
+      "assist_investigation": 0.9666666666666667
+    }
+  },
+  "post_incident_action": {
+    "mean_jaccard": 0.9194444444444444,
+    "per_label_f1": {
+      "action_bank": 0.9333333333333333,
+      "action_password_reset": 0.9375,
+      "action_police": 0.8333333333333334,
+      "action_account_block": 0.9090909090909091
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "base_model": "l3cube-pune/hing-roberta",
+  "architecture": {
+    "projection_dimension": 256,
+    "dropout": 0.2,
+    "freeze_embeddings": true,
+    "freeze_lower_encoder_layers": 6
+  },
+  "data": {
+    "text_column": "narrative",
+    "maximum_sequence_length": 256,
+    "train_ratio": 0.70,
+    "validation_ratio": 0.15,
+    "test_ratio": 0.15,
+    "stratification_column": "category"
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.00002,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "maximum_epochs": 15,
+    "early_stopping_patience": 3,
+    "maximum_gradient_norm": 1.0,
+    "warmup_ratio": 0.10,
+    "random_seed": 42
+  },
+  "loss": {
+    "misconception_focal_gamma": 2.0,
+    "task_weights": {
+      "attack_vector": 1.0,
+      "awareness": 1.0,
+      "attribution": 1.0,
+      "misconception": 1.0,
+      "emotions": 1.0,
+      "assistance": 1.0,
+      "actions": 1.0
+    }
+  },
+  "threshold_tuning": {
+    "minimum": 0.05,
+    "maximum": 0.95,
+    "step": 0.05,
+    "objective": "macro_f1"
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "records": 60,
+  "small_cell_threshold": 5,
+  "attack_vector": {
+    "Phishing email": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "Phishing SMS/call": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "Malicious link/app": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "Account hacking": {
+      "n": 10,
+      "proportion": 0.16666666666666666
+    },
+    "Impersonation/social engineering": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "Other/unknown": {
+      "n": 10,
+      "proportion": 0.16666666666666666
+    }
+  },
+  "attribution": {
+    "Internal attribution": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "External attribution": {
+      "n": 45,
+      "proportion": 0.75
+    }
+  },
+  "technical_awareness": {
+    "No awareness": {
+      "n": 20,
+      "proportion": 0.3333333333333333
+    },
+    "Accurate awareness": {
+      "n": 40,
+      "proportion": 0.6666666666666666
+    }
+  },
+  "misconception": {
+    "No identified misconception": {
+      "n": 60,
+      "proportion": 1.0
+    }
+  },
+  "emotional_expression": {
+    "emotion_panic": {
+      "n": 0,
+      "proportion": 0.0
+    },
+    "emotion_anger": {
+      "n": 0,
+      "proportion": 0.0
+    },
+    "emotion_fear": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "emotion_confusion": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "emotion_neutral": {
+      "n": 45,
+      "proportion": 0.75
+    }
+  },
+  "requested_assistance": {
+    "assist_fund_recovery": {
+      "n": 35,
+      "proportion": 0.5833333333333334
+    },
+    "assist_account_recovery": {
+      "n": 25,
+      "proportion": 0.4166666666666667
+    },
+    "assist_content_removal": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "assist_legal_action": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "assist_investigation": {
+      "n": 30,
+      "proportion": 0.5
+    }
+  },
+  "post_incident_action": {
+    "action_bank": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "action_password_reset": {
+      "n": 15,
+      "proportion": 0.25
+    },
+    "action_police": {
+      "n": 5,
+      "proportion": 0.08333333333333333
+    },
+    "action_account_block": {
+      "n": 10,
+      "proportion": 0.16666666666666666
+    }
+  },
+  "by_awareness": {
+    "No awareness": {
+      "n": 20,
+      "misconception": {
+        "n": 20,
+        "positive_n": "SUPPRESSED",
+        "proportion": "SUPPRESSED"
+      },
+      "emotional_expression": {
+        "emotion_panic": {
+          "n": 20,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_anger": {
+          "n": 20,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_fear": {
+          "n": 20,
+          "positive_n": 5,
+          "proportion": 0.25
+        },
+        "emotion_confusion": {
+          "n": 20,
+          "positive_n": 15,
+          "proportion": 0.75
+        },
+        "emotion_neutral": {
+          "n": 20,
+          "positive_n": 5,
+          "proportion": 0.25
+        }
+      },
+      "requested_assistance": {
+        "assist_fund_recovery": {
+          "n": 20,
+          "positive_n": 10,
+          "proportion": 0.5
+        },
+        "assist_account_recovery": {
+          "n": 20,
+          "positive_n": 10,
+          "proportion": 0.5
+        },
+        "assist_content_removal": {
+          "n": 20,
+          "positive_n": 5,
+          "proportion": 0.25
+        },
+        "assist_legal_action": {
+          "n": 20,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "assist_investigation": {
+          "n": 20,
+          "positive_n": 10,
+          "proportion": 0.5
+        }
+      },
+      "post_incident_action": {
+        "action_bank": {
+          "n": 20,
+          "positive_n": 10,
+          "proportion": 0.5
+        },
+        "action_password_reset": {
+          "n": 20,
+          "positive_n": 10,
+          "proportion": 0.5
+        },
+        "action_police": {
+          "n": 20,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "action_account_block": {
+          "n": 20,
+          "positive_n": 5,
+          "proportion": 0.25
+        }
+      }
+    },
+    "Partial awareness": {
+      "n": 0,
+      "status": "SUPPRESSED"
+    },
+    "Accurate awareness": {
+      "n": 40,
+      "misconception": {
+        "n": 40,
+        "positive_n": "SUPPRESSED",
+        "proportion": "SUPPRESSED"
+      },
+      "emotional_expression": {
+        "emotion_panic": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_anger": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_fear": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_confusion": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "emotion_neutral": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        }
+      },
+      "requested_assistance": {
+        "assist_fund_recovery": {
+          "n": 40,
+          "positive_n": 25,
+          "proportion": 0.625
+        },
+        "assist_account_recovery": {
+          "n": 40,
+          "positive_n": 15,
+          "proportion": 0.375
+        },
+        "assist_content_removal": {
+          "n": 40,
+          "positive_n": "SUPPRESSED",
+          "proportion": "SUPPRESSED"
+        },
+        "assist_legal_action": {
+          "n": 40,
+          "positive_n": 5,
+          "proportion": 0.125
+        },
+        "assist_investigation": {
+          "n": 40,
+          "positive_n": 20,
+          "proportion": 0.5
+        }
+      },
+      "post_incident_action": {
+        "action_bank": {
+          "n": 40,
+          "positive_n": 5,
+          "proportion": 0.125
+        },
+        "action_password_reset": {
+          "n": 40,
+          "positive_n": 5,
+          "proportion": 0.125
+        },
+        "action_police": {
+          "n": 40,
+          "positive_n": 5,
+          "proportion": 0.125
+        },
+        "action_account_block": {
+          "n": 40,
+          "positive_n": 5,
+          "proportion": 0.125
+        }
+      }
+    }
+  }
+}

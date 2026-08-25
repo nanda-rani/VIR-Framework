@@ -1,0 +1,42 @@
+\section{Open Science}
+\label{app:open-science}
+
+We provide an anonymous artifact at
+\url{ANONYMOUS_ARTIFACT_URL}. The artifact contains the complete Victim
+Interpretation and Response (VIR) codebook and adjudication protocol, a
+machine-readable label schema, aggregate-analysis and evaluation code, a
+machine-readable record of the aggregate results reported in the paper, and a
+wholly synthetic dataset for exercising the public pipeline. The synthetic
+records were invented for the artifact and are neither NCRP records nor
+paraphrases of individual complaints. The repository includes a quick-start
+guide, an artifact-to-claim manifest, small-cell suppression, and automated
+privacy and anonymization checks. It also provides a complete implementation
+of the method described in the paper: a partially frozen shared HingRoBERTa
+encoder with task-specific projection and prediction heads, weighted
+multi-task losses, focal loss for misconception, deterministic stratified
+partitioning, validation-loss early stopping, validation-set threshold tuning,
+held-out testing, and label propagation. The configuration records all model,
+optimization, loss, split, and decoding settings used by the artifact.
+
+We cannot distribute the underlying complaint corpus. The data consist of
+118,848 anonymized victim reports submitted to India's National Cybercrime
+Reporting Portal and made available through the CyberGuard AI Hackathon 2024,
+organized by IndiaAI and the Indian Cybercrime Coordination Centre. We are not
+the data owners and do not have authorization to redistribute these records.
+Moreover, free-text narratives concerning victim experiences can retain
+indirect identifiers and distinctive event details after direct identifiers
+have been removed. We therefore exclude the raw complaints; the human-labelled
+and model-labelled complaint-level datasets; record identifiers and split
+memberships; embeddings, token caches, and raw model outputs; and other
+intermediate representations from which complaint information might be
+recovered. We also withhold the fine-tuned model weights because memorization
+of sensitive narratives has not been ruled out. Researchers seeking the NCRP
+data must obtain authorization independently from the relevant data controller;
+we cannot grant or guarantee such access.
+
+Upon acceptance, all releasable materials will be deposited in a versioned
+archive providing persistent public access, and this appendix will be updated
+with its stable, non-anonymous URL and version. The data restrictions apply
+only to complaint-level materials and do not prevent permanent release of the
+codebook, schema, code, documentation, synthetic examples, and aggregate
+results.
