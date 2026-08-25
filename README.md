@@ -1,7 +1,6 @@
-# Anonymous Artifact for the VIR Cybercrime-Complaint Study
+# VIR Cybercrime-Complaint Study
 
-This anonymous artifact accompanies a submission to USENIX Security '27. It
-documents the Victim Interpretation and Response (VIR) framework and provides
+This artifact documents the Victim Interpretation and Response (VIR) framework and provides
 code for validating VIR-formatted data, calculating aggregate statistics, and
 evaluating predictions. It also implements the shared-encoder, multi-head
 HingRoBERTa training, validation, threshold-tuning, testing, and inference
@@ -12,7 +11,7 @@ end-to-end test without exposing any real complaint.
 
 The original National Cybercrime Reporting Portal (NCRP) narratives are not
 included. The authors do not own the data and do not have permission to
-redistribute it. Even after removal of direct identifiers, free-text victim
+redistribute it. Even after removal/anonymization of direct identifiers, free-text victim
 narratives may create residual disclosure and re-identification risks.
 
 The following are deliberately absent:
@@ -23,7 +22,7 @@ The following are deliberately absent:
 - trained weights fine-tuned on the complaints; and
 - any intermediate representation from which complaint text might be inferred.
 
-See `DATA_AVAILABILITY.md` for the complete rationale and the substitute
+Please refer to `DATA_AVAILABILITY.md` for the complete rationale and the substitute
 supplied for each unavailable artifact.
 
 ## Included materials
