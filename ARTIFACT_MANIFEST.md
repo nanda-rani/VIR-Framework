@@ -30,7 +30,6 @@ Status meanings:
 - Framework and annotation sections: codebook, protocol, and schema.
 - Human-AI pipeline: evaluation code and reported aggregate results.
 - Large-scale analysis: aggregate analysis code and reported aggregate results.
-- Ethics and open science: data-availability statement and appendix text.
 
 The synthetic dataset is solely a functional test fixture; it is not evidence
 for any empirical claim.
