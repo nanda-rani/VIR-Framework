@@ -40,10 +40,6 @@ supplied for each unavailable artifact.
 - `src/test_model.py`: evaluation of a saved checkpoint;
 - `src/predict_model.py`: label propagation without narrative export;
 - `config/training_config.json`: complete artifact configuration;
-- `src/validate_release.py`: privacy and anonymization release checks;
-- `results/reported_aggregate_results.json`: aggregate values transcribed from
-  the submitted manuscript; and
-- `paper/open_science_appendix.tex`: appendix text for the paper.
 
 `ARTIFACT_MANIFEST.md` maps claims to artifacts or omission explanations.
 
@@ -55,7 +51,6 @@ versions in `requirements.txt`.
 
 ```bash
 make demo
-make validate
 ```
 
 The expanded commands are:
@@ -67,7 +62,6 @@ python3 src/evaluate_predictions.py \
   synthetic/vir_synthetic.csv results/demo_evaluation.json
 python3 src/aggregate_analysis.py \
   synthetic/vir_synthetic.csv results/demo_aggregates.json --min-cell-size 5
-python3 src/validate_release.py .
 ```
 
 The synthetic outputs demonstrate code execution only. They must not be
@@ -107,22 +101,6 @@ python3 src/predict_model.py \
 
 The prediction export contains IDs, labels, and probabilities but never copies
 narrative text.
-
-## Reproducing analyses with separately authorized data
-
-An independent reviewer cannot reproduce the restricted data-dependent results
-from this public package alone. A researcher with separate authorization can:
-
-1. prepare a private CSV conforming to `schema/vir_schema.json`;
-2. validate it using `src/validate_schema.py`;
-3. run the aggregate analyses and evaluation; and
-4. compare aggregate outputs with `results/reported_aggregate_results.json`.
-
-Never copy an authorized private dataset into this artifact directory.
-
-The public artifact supports reproduction of the method and execution of the
-pipeline. Reproduction of the paper's data-dependent numerical findings still
-requires separately authorized access to the restricted NCRP corpus.
 
 ## License
 
