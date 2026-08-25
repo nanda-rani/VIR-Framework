@@ -123,5 +123,3 @@ the narrative states that it was already taken.
 7. Record uncertainty for adjudication rather than forcing an unsupported label.
 8. Never place verbatim restricted narrative text in annotation notes.
 
-Synthetic examples in this artifact are invented and are not paraphrases of
-individual NCRP complaints.
