@@ -53,9 +53,3 @@ thresholds are then used for held-out testing and label propagation.
 - Multi-label outputs: mean per-record Jaccard similarity, macro-F1, and
   per-label F1.
 
-## Privacy behavior
-
-Checkpoints and complaint-level predictions are ignored by the public artifact.
-The inference command writes record identifiers, labels, confidence values, and
-probabilities; it never exports narrative text. Authorized data, checkpoints,
-and predictions should remain outside the public artifact directory.
