@@ -34,13 +34,6 @@ authorization independently from the relevant data owner or controller. The
 authors cannot guarantee access and will not transfer records obtained under
 their own access arrangement.
 
-## Publicly releasable materials
-
-The VIR definitions, annotation procedure, schema, aggregate-only code,
-evaluation code, reported aggregates, and synthetic examples can be released
-publicly. Upon acceptance, these materials should be deposited in a versioned
-repository providing persistent access, and the camera-ready paper should cite
-the stable URL and version.
 
 Nothing in this artifact grants permission to identify, contact, trace, or
 profile complainants or to combine materials with external data for
