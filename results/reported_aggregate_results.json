@@ -1,0 +1,48 @@
+{
+  "source": "Aggregate values reported in CRIME_USENIX27-14.pdf.",
+  "units": "Proportions and metrics are represented on a 0-to-1 scale.",
+  "dataset": {
+    "total_complaints": 118848,
+    "gold_total": 1998,
+    "silver_total": 116850,
+    "gold_split": {
+      "strategy": "stratified",
+      "train_ratio": 0.70,
+      "validation_ratio": 0.15,
+      "test_ratio": 0.15
+    },
+    "human_ai_evaluation_partition": "test"
+  },
+  "pre_adjudication_inter_annotator_agreement": {
+    "attack_vector": 0.913,
+    "attribution": 0.771,
+    "technical_awareness": 0.745,
+    "misconception": 0.689,
+    "emotional_expression": 0.759,
+    "requested_assistance": 0.813,
+    "post_incident_action": 0.728,
+    "complaints_requiring_adjudication_on_at_least_one_dimension": 0.384
+  },
+  "held_out_test_human_ai_evaluation": {
+    "attack_vector": {"accuracy": 0.900, "macro_f1": 0.900},
+    "technical_awareness": {"accuracy": 0.850, "macro_f1": 0.852, "spearman_rho": 0.857},
+    "attribution": {"accuracy": 0.870, "macro_f1": 0.860, "cohen_kappa": 0.720},
+    "misconception": {"accuracy": 0.900, "macro_f1": 0.846, "cohen_kappa": 0.691},
+    "emotional_expression": {"macro_f1": 0.795, "mean_jaccard": 0.698},
+    "requested_assistance": {"macro_f1": 0.836, "mean_jaccard": 0.775},
+    "post_incident_action": {"macro_f1": 0.754, "mean_jaccard": 0.700}
+  },
+  "silver_aggregate_distributions": {
+    "attack_vector": {
+      "Phishing email": 0.0167,
+      "Phishing SMS/call": 0.7521,
+      "Malicious link/app": 0.1039,
+      "Account hacking": 0.0038,
+      "Impersonation/social engineering": 0.0945,
+      "Other/unknown": 0.0289
+    },
+    "attribution": {"Internal": 0.5337, "External": 0.4663},
+    "technical_awareness": {"None": 0.1836, "Partial": 0.5323, "Accurate": 0.2841},
+    "misconception": {"Present": 0.6895, "Not identified": 0.3105}
+  }
+}

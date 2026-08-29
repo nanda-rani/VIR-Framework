@@ -1,0 +1,106 @@
+{
+  "evaluation_split": "test",
+  "records": 9,
+  "attack_vector": {
+    "accuracy": 0.8888888888888888,
+    "macro_f1": 0.9111111111111111,
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    ]
+  },
+  "technical_awareness": {
+    "accuracy": 1.0,
+    "within_one_level_accuracy": 1.0,
+    "macro_f1": 0.6666666666666666,
+    "spearman_rho": 1.0
+  },
+  "attribution": {
+    "accuracy": 0.8888888888888888,
+    "macro_f1": 0.8615384615384616,
+    "cohen_kappa": 0.7272727272727272
+  },
+  "misconception": {
+    "accuracy": 1.0,
+    "macro_f1": 0.5,
+    "cohen_kappa": 1.0
+  },
+  "emotional_expression": {
+    "mean_jaccard": 0.8888888888888888,
+    "macro_f1": 0.6,
+    "per_label_f1": {
+      "emotion_panic": 0.0,
+      "emotion_anger": 0.0,
+      "emotion_fear": 1.0,
+      "emotion_confusion": 1.0,
+      "emotion_neutral": 1.0
+    }
+  },
+  "requested_assistance": {
+    "mean_jaccard": 0.8888888888888888,
+    "macro_f1": 0.5595959595959596,
+    "per_label_f1": {
+      "assist_fund_recovery": 0.8888888888888888,
+      "assist_account_recovery": 1.0,
+      "assist_content_removal": 0.0,
+      "assist_legal_action": 0.0,
+      "assist_investigation": 0.9090909090909091
+    }
+  },
+  "post_incident_action": {
+    "mean_jaccard": 0.9444444444444444,
+    "macro_f1": 0.5,
+    "per_label_f1": {
+      "action_bank": 1.0,
+      "action_password_reset": 1.0,
+      "action_police": 0.0,
+      "action_account_block": 0.0
+    }
+  }
+}
