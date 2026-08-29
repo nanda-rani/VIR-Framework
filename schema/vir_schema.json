@@ -15,7 +15,7 @@
   "properties": {
     "record_id": {"type": "string", "description": "Use an internal non-identifying ID in an authorized private environment. All public demonstration IDs must match SYN-NNNN."},
     "is_synthetic": {"type": "integer", "enum": [0, 1], "description": "Public demonstration records use 1; authorized private records use 0."},
-    "split": {"enum": ["train", "validation", "test", "agreement"]},
+    "split": {"enum": ["train", "validation", "test"], "description": "The complete adjudicated gold sample is partitioned once; the held-out test split is also used for the final Human-AI evaluation."},
     "narrative": {"type": "string", "description": "Invented text in the public artifact; restricted complaint text only in a private authorized environment."},
     "attack_vector": {"type": "integer", "minimum": 0, "maximum": 5},
     "attribution": {"type": "integer", "minimum": 0, "maximum": 1},
