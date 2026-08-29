@@ -47,6 +47,7 @@ def main():
     ).to(device)
     loss, logits, labels = collect(model, loader, loss_function, device)
     metrics = evaluate_logits(logits, labels, thresholds)
+    metrics["evaluation_split"] = "test"
     metrics["loss"] = loss
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(metrics, indent=2) + "\n", encoding="utf-8")

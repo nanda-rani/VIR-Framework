@@ -9,7 +9,7 @@ from vir_fields import LABEL_FIELDS, VALUE_RANGES
 
 
 REQUIRED = ["record_id", "is_synthetic", "split", "narrative"] + LABEL_FIELDS
-SPLITS = {"train", "validation", "test", "agreement"}
+SPLITS = {"train", "validation", "test"}
 
 
 def main() -> None:

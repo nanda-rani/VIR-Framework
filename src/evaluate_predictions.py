@@ -78,12 +78,23 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("input_csv", type=Path)
     parser.add_argument("output_json", type=Path)
+    parser.add_argument(
+        "--split",
+        choices=("train", "validation", "test"),
+        default="test",
+        help="Partition to evaluate (default: test). Use the held-out test split for Human-AI evaluation.",
+    )
     args = parser.parse_args()
 
     with args.input_csv.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
     if not rows:
         raise SystemExit("Input contains no records")
+    if "split" not in rows[0]:
+        raise SystemExit("Missing required split column")
+    rows = [row for row in rows if row.get("split") == args.split]
+    if not rows:
+        raise SystemExit(f"No records found for split={args.split}")
 
     required = [ATTACK_VECTOR, ATTRIBUTION, AWARENESS, MISCONCEPTION] + EMOTIONS + ASSISTANCE + ACTIONS
     missing = [field for field in required if field not in rows[0] or f"pred_{field}" not in rows[0]]
@@ -98,6 +109,7 @@ def main() -> None:
     aware_gold, aware_pred = values[AWARENESS]
 
     output = {
+        "evaluation_split": args.split,
         "records": len(rows),
         "attack_vector": {
             "accuracy": accuracy(attack_gold, attack_pred),
@@ -121,7 +133,7 @@ def main() -> None:
         },
         "misconception": {
             "accuracy": accuracy(*values[MISCONCEPTION]),
-            "f1": f1_for_class(*values[MISCONCEPTION], positive=1),
+            "macro_f1": macro_f1(*values[MISCONCEPTION], classes=range(2)),
             "cohen_kappa": cohen_kappa(*values[MISCONCEPTION]),
         },
     }
@@ -130,6 +142,9 @@ def main() -> None:
         similarities = [jaccard_for_group(row, fields) for row in rows]
         output[name] = {
             "mean_jaccard": sum(similarities) / len(similarities),
+            "macro_f1": sum(
+                f1_for_class(*values[field], positive=1) for field in fields
+            ) / len(fields),
             "per_label_f1": {
                 field: f1_for_class(*values[field], positive=1) for field in fields
             },
@@ -137,7 +152,7 @@ def main() -> None:
 
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote aggregate evaluation for {len(rows)} records to {args.output_json}")
+    print(f"Wrote {args.split} evaluation for {len(rows)} records to {args.output_json}")
 
 
 if __name__ == "__main__":

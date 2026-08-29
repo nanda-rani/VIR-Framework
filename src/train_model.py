@@ -13,7 +13,7 @@ from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, get_linear_schedule_with_warmup
 
-from ml_data import TASK_FIELDS, VIRCollator, VIRDataset, deterministic_split, load_rows
+from ml_data import TASK_FIELDS, VIRCollator, VIRDataset, deterministic_split, load_rows, split_fingerprint
 from ml_metrics import evaluate_logits, tune_thresholds
 from modeling import MultiTaskHingRoBERTa, VIRLoss, compute_training_weights
 
@@ -183,7 +183,16 @@ def main():
     test_metrics["loss"] = test_loss
     metadata = {
         "device": str(device),
+        "gold_records": len(rows),
+        "split_strategy": "stratified_70_15_15",
+        "stratification_column": data_config["stratification_column"],
+        "random_seed": optimization["random_seed"],
         "split_sizes": {name: len(values) for name, values in splits.items()},
+        "split_fingerprints_sha256": {name: split_fingerprint(values) for name, values in splits.items()},
+        "checkpoint_selection_split": "validation",
+        "threshold_selection_split": "validation",
+        "final_evaluation_split": "test",
+        "test_evaluations_in_training_run": 1,
         "trainable_parameters": sum(parameter.numel() for parameter in trainable),
         "total_parameters": sum(parameter.numel() for parameter in model.parameters()),
     }

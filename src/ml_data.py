@@ -1,6 +1,7 @@
 """CSV loading, deterministic splitting, tokenization, and VIR batching."""
 
 import csv
+import hashlib
 import random
 from collections import defaultdict
 from pathlib import Path
@@ -35,8 +36,19 @@ def load_rows(path: Path, text_column="narrative") -> list[dict[str, str]]:
 
 
 def deterministic_split(rows, seed, train_ratio, validation_ratio, stratification_column):
-    named = {name: [row for row in rows if row.get("split") == name] for name in ("train", "validation", "test")}
-    if all(named.values()):
+    split_names = ("train", "validation", "test")
+    declared = {row.get("split", "").strip() for row in rows}
+    declared.discard("")
+    if declared:
+        invalid = declared - set(split_names)
+        if invalid:
+            raise ValueError("Invalid split values: " + ", ".join(sorted(invalid)))
+        if any(not row.get("split", "").strip() for row in rows):
+            raise ValueError("Split values must be present for every row or omitted for every row")
+        named = {name: [row for row in rows if row["split"] == name] for name in split_names}
+        if not all(named.values()):
+            raise ValueError("Explicit splits must contain non-empty train, validation, and test partitions")
+        validate_split_integrity(named, len(rows))
         return named
 
     groups = defaultdict(list)
@@ -62,7 +74,26 @@ def deterministic_split(rows, seed, train_ratio, validation_ratio, stratificatio
         rng.shuffle(split)
     if not all(output.values()):
         raise ValueError("The deterministic split produced an empty partition; provide explicit train/validation/test values")
+    validate_split_integrity(output, len(rows))
     return output
+
+
+def validate_split_integrity(splits, expected_records):
+    """Reject overlap, duplicate IDs, or records lost during partitioning."""
+    rows = [row for name in ("train", "validation", "test") for row in splits[name]]
+    if len(rows) != expected_records:
+        raise ValueError(f"Split coverage mismatch: expected {expected_records}, found {len(rows)}")
+    ids = [row.get("record_id", "").strip() for row in rows]
+    if any(not record_id for record_id in ids):
+        raise ValueError("Every partitioned row must have a non-empty record_id")
+    if len(ids) != len(set(ids)):
+        raise ValueError("Duplicate record_id detected across train/validation/test partitions")
+
+
+def split_fingerprint(rows):
+    """Return a privacy-preserving digest of sorted record identifiers."""
+    identifiers = "\n".join(sorted(row["record_id"] for row in rows))
+    return hashlib.sha256(identifiers.encode("utf-8")).hexdigest()
 
 
 class VIRDataset(Dataset):
