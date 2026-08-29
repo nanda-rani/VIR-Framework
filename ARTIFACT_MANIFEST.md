@@ -21,14 +21,14 @@ Status meanings:
 | Model architecture, objective, selection, and metric documentation | Model pipeline description | Available | `documentation/MODEL_PIPELINE.md` |
 | Numerical values appearing in the manuscript | Machine-readable aggregate record | Available | `results/reported_aggregate_results.json` |
 | Raw corpus of 118,848 NCRP complaints | Complaint narratives | Unavailable | No redistribution authorization and material privacy risk |
-| Gold corpus of 1,998 expert-annotated complaints, including the 1,498 model-development and 500 agreement records | Complaint-level annotations | Unavailable | Labels remain linked to restricted narratives |
+| Gold corpus of 1,998 expert-annotated complaints, partitioned once into stratified training, validation, and held-out test sets (70/15/15) | Complaint-level annotations | Unavailable | Labels and split membership remain linked to restricted narratives |
 | Silver corpus of 116,850 propagated labels | Complaint-level predictions | Unavailable | Sensitive, linkable derived records |
 | Fine-tuned weights | Model checkpoint | Unavailable | Withheld because memorization of sensitive narratives has not been ruled out; the training source and configuration are provided |
 
 ## Artifact-to-paper navigation
 
 - Framework and annotation sections: codebook, protocol, and schema.
-- Human-AI pipeline: evaluation code and reported aggregate results.
+- Human-AI pipeline: held-out-test evaluation code, run metadata, and reported aggregate results.
 - Large-scale analysis: aggregate analysis code and reported aggregate results.
 
 The synthetic dataset is solely a functional test fixture; it is not evidence

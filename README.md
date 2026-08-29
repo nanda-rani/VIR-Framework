@@ -32,7 +32,9 @@ supplied for each unavailable artifact.
 - `schema/vir_schema.json`: machine-readable field definitions;
 - `synthetic/vir_synthetic.csv`: invented, non-representative test records;
 - `src/aggregate_analysis.py`: aggregate analysis with small-cell suppression;
-- `src/evaluate_predictions.py`: aggregate prediction-evaluation metrics;
+- `src/evaluate_predictions.py`: split-aware prediction-evaluation metrics,
+  defaulting to the held-out test partition;
+- `src/generate_synthetic_data.py`: deterministic 70/15/15 synthetic fixture generator;
 - `src/modeling.py`: partially frozen shared HingRoBERTa encoder and seven
   task-specific projection/classification heads;
 - `src/train_model.py`: stratified splitting, weighted multi-task training,
@@ -59,13 +61,20 @@ The expanded commands are:
 python3 src/generate_synthetic_data.py
 python3 src/validate_schema.py synthetic/vir_synthetic.csv
 python3 src/evaluate_predictions.py \
-  synthetic/vir_synthetic.csv results/demo_evaluation.json
+  synthetic/vir_synthetic.csv results/demo_test_evaluation.json --split test
 python3 src/aggregate_analysis.py \
   synthetic/vir_synthetic.csv results/demo_aggregates.json --min-cell-size 5
 ```
 
 The synthetic outputs demonstrate code execution only. They must not be
 interpreted as approximations of the empirical findings.
+
+The real experiment partitions all 1,998 adjudicated gold records once into
+stratified training, validation, and held-out test sets (70/15/15). Validation
+controls early stopping and threshold selection. The test partition is
+evaluated once and supplies the Human-AI results; there is no separate
+500-record agreement set. Pre-adjudication human-human agreement remains a
+distinct analysis based on the annotators' independent labels.
 
 ## Model training, validation, and testing
 

@@ -23,7 +23,7 @@ re-identification, and misuse risks.
 | Raw complaint corpus | No redistribution authority; sensitive victim narratives | Provenance, corpus-level counts, schema, and synthetic examples |
 | Human-annotated records | Labels remain linkable to sensitive text and row structure | Full VIR codebook and synthetic labelled records |
 | Automatically labelled records | Complaint-level derivatives retain linkability and sensitive categories | Aggregate results and aggregate-analysis code |
-| Split memberships and row identifiers | May facilitate linkage or reconstruction | Split procedure description and synthetic splits |
+| Train/validation/test memberships and row identifiers | May facilitate linkage or reconstruction | 70/15/15 split procedure, privacy-preserving split fingerprints, and synthetic splits |
 | Embeddings, token caches, and raw model outputs | May encode or reproduce complaint text | Architecture and configuration documentation |
 | Fine-tuned model weights | Memorization of sensitive narratives has not been ruled out | Training, testing, evaluation, and inference source plus complete configuration |
 
