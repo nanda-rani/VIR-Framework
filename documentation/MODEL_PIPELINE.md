@@ -39,6 +39,12 @@ If the CSV contains explicit `train`, `validation`, and `test` values in the
 deterministic 70/15/15 stratified split, using `category` when present and
 attack vector as the fallback stratum.
 
+The complete 1,998-record adjudicated gold sample is partitioned once. There is
+no fourth or separately sampled agreement partition. The held-out test
+partition serves both as the final predictive evaluation set and as the basis
+for Human-AI correspondence with adjudicated expert labels. Test labels are not
+used for checkpoint selection or threshold tuning.
+
 Training stops when validation loss does not improve for three consecutive
 epochs. The best validation-loss checkpoint is retained. Single-label heads
 use argmax. Binary and multi-label thresholds are chosen on the validation set
@@ -47,9 +53,12 @@ thresholds are then used for held-out testing and label propagation.
 
 ## Evaluation
 
+Final metrics are computed once on the held-out test partition. Every metrics
+file records the evaluated split and record count; run metadata also records
+split sizes and privacy-preserving SHA-256 fingerprints of split membership.
+
 - Attack vector: accuracy, macro-F1, per-class F1, and confusion matrix.
 - Attribution and misconception: accuracy, macro-F1, and Cohen's kappa.
 - Awareness: accuracy, within-one-level accuracy, macro-F1, and Spearman's rho.
 - Multi-label outputs: mean per-record Jaccard similarity, macro-F1, and
   per-label F1.
-

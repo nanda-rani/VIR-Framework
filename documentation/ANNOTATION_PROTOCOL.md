@@ -18,7 +18,7 @@ to maximize agreement.
 The pre-adjudication annotations must be preserved separately from the final
 consensus labels so that agreement is calculated before discussion.
 
-## Agreement
+## Pre-adjudication inter-annotator agreement
 
 - Attack vector: accuracy and a class-wise confusion matrix.
 - Attribution and misconception: accuracy and Cohen's kappa.
@@ -37,8 +37,16 @@ annotations.
 
 ## Sampling and partitions reported in the manuscript
 
-The manuscript reports a stratified gold sample of 1,998 complaints: 1,498 for
-model development and 500 for a separate human-AI agreement analysis. The 1,498
-model-development complaints are reported as stratified into training,
-validation, and held-out test partitions in a 70/15/15 ratio. Exact split
-membership is not public because it is complaint-level information.
+The manuscript reports one stratified gold sample of 1,998 complaints. After
+adjudication, the complete gold sample is divided once into training,
+validation, and held-out test partitions in a 70/15/15 ratio. The training
+partition is used for parameter estimation, the validation partition for early
+stopping and decision-threshold selection, and the test partition only for the
+final predictive evaluation and Human-AI agreement analysis. There is no
+separate 500-record agreement partition. Exact split membership is not public
+because it is complaint-level information.
+
+Pre-adjudication inter-annotator agreement and final Human-AI agreement are
+different analyses. The former compares the two independent human annotations
+before discussion. The latter compares model predictions with the final
+adjudicated expert labels on the held-out test partition.
