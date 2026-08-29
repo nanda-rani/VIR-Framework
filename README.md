@@ -72,8 +72,7 @@ interpreted as approximations of the empirical findings.
 The real experiment partitions all 1,998 adjudicated gold records once into
 stratified training, validation, and held-out test sets (70/15/15). Validation
 controls early stopping and threshold selection. The test partition is
-evaluated once and supplies the Human-AI results; there is no separate
-500-record agreement set. Pre-adjudication human-human agreement remains a
+evaluated once and supplies the Human-AI results. Pre-adjudication human-human agreement remains a
 distinct analysis based on the annotators' independent labels.
 
 ## Model training, validation, and testing
