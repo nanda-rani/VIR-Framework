@@ -58,7 +58,6 @@ make demo
 The expanded commands are:
 
 ```bash
-python3 src/generate_synthetic_data.py
 python3 src/validate_schema.py synthetic/vir_synthetic.csv
 python3 src/evaluate_predictions.py \
   synthetic/vir_synthetic.csv results/demo_test_evaluation.json --split test
