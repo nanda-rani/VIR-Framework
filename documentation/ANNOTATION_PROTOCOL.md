@@ -42,8 +42,7 @@ adjudication, the complete gold sample is divided once into training,
 validation, and held-out test partitions in a 70/15/15 ratio. The training
 partition is used for parameter estimation, the validation partition for early
 stopping and decision-threshold selection, and the test partition only for the
-final predictive evaluation and Human-AI agreement analysis. There is no
-separate 500-record agreement partition. Exact split membership is not public
+final predictive evaluation and Human-AI agreement analysis. Exact split membership is not public
 because it is complaint-level information.
 
 Pre-adjudication inter-annotator agreement and final Human-AI agreement are
