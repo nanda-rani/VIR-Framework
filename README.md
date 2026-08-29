@@ -47,7 +47,7 @@ supplied for each unavailable artifact.
 
 ## Quick start
 
-Requirements: Python 3.10 or newer. The schema, aggregate, and release
+Requirements: Python 3.10. The schema, aggregate, and release
 demonstration uses the standard library. Model training additionally uses the
 versions in `requirements.txt`.
 
